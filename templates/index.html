@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <div class="logo">Currency Converter</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/data_services">Data Services</a></li>
+                    <li><a href="/help">Help</a></li>
+                    {% if 'loggedin' in session %}
+                        <li><a href="/logout" class="logout-btn">Logout</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Converter Section -->
+    <div class="container">
+        <div class="converter-box">
+            <form action="/convert" method="POST" id="currency-form">
+                <div class="form-group">
+                    <label for="from_currency"><i class="fas fa-flag"></i> From Currency:</label>
+                    <select id="from_currency" name="from_currency">
+                        {% for currency in currencies %}
+                            <option value="{{ currency.currency_code }}">{{ currency.currency_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="to_currency"><i class="fas fa-flag"></i> To Currency:</label>
+                    <select id="to_currency" name="to_currency">
+                        {% for currency in currencies %}
+                            <option value="{{ currency.currency_code }}">{{ currency.currency_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount"><i class="fas fa-money-bill-wave"></i> Amount:</label>
+                    <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date"><i class="fas fa-calendar-alt"></i> Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="button" id="swap-btn">
+                    <i class="fas fa-exchange-alt"></i> Swap Currencies
+                </button>
+
+                <button type="submit" class="convert-btn">Convert</button>
+            </form>
+
+            {% if result %}
+            <div class="result">
+                <p>{{ result }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Currency Converter</p>
+    </footer>
+
+    <script src="static/app.js"></script>
+</body>
+</html>

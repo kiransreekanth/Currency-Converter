@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Services</title>
+    <link href="static/data_services.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Currency Converter</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/data_services">Data Services</a></li>
+                    <li><a href="/help">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Recent Transactions</h2>
+        <div class="converter-box">
+            {% if transactions %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From Currency</th>
+                            <th>To Currency</th>
+                            <th>Amount</th>
+                            <th>Result</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction.from_currency }}</td>
+                            <td>{{ transaction.to_currency }}</td>
+                            <td>{{ transaction.amount }}</td>
+                            <td>{{ transaction.result }}</td>
+                            <td>{{ transaction.transaction_date }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No recent transactions found.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Currency Converter</p>
+    </footer>
+</body>
+</html>
