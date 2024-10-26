@@ -1,0 +1,106 @@
+/* Global Styles for Help Page */
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the page takes up full height */
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Help Content Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the box */
+    align-items: center; /* Horizontally center the box */
+    flex: 1; /* Take up remaining space between header and footer */
+    padding: 20px;
+    min-height: 70vh;
+}
+
+/* Centered Help & FAQs Title */
+.help-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #003366;
+}
+
+/* Help Content Box */
+.help-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 100%;
+}
+
+.help-content h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.help-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.help-content li {
+    margin-bottom: 10px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
